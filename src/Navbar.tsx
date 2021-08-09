@@ -16,20 +16,6 @@ export const NavBar: React.FC<NavBarProps> = (
 ) => {
   const classes = useStyles();
 
-  const handleLogin = () => {
-    return;
-  };
-
-  // const handleLogin = async () => {
-  //   const provider = new firebase.auth.GoogleAuthProvider();
-  //   firebase
-  //     .auth()
-  //     .signInWithPopup(provider)
-  //     .then((result) => {
-  //       setCurrentUser(result.user);
-  //     });
-  // };
-
   return (
     <AppBar position="fixed">
       <Toolbar>
@@ -49,8 +35,8 @@ export const NavBar: React.FC<NavBarProps> = (
             </Button>
           </Grid>
           <Grid item>
-            <Button onClick={handleLogin}>
-              <Link to="/" className={classes.link}>
+            <Button>
+              <Link to="/LogIn" className={classes.link}>
                 <Typography variant="h6" className={classes.navBar}>
                   Log In
                 </Typography>

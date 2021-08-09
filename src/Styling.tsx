@@ -69,4 +69,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     color: "inherit",
   },
+  input: {
+    marginBottom: "25px",
+  },
 }));
