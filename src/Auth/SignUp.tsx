@@ -16,17 +16,30 @@ type SignUpProps = {};
 
 export const SignUp: React.FC<SignUpProps> = () => {
   const classes = useStyles();
-
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [passwordConfirm, setPasswordConfirm] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const { signup } = useAuth();
+  const { signup, currentUser, firebaseError } = useAuth();
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
+  const handleSubmit = async (e: any) => {
+    if (password !== passwordConfirm)
+      return setError("Passwords do not match.");
+    if (password.length < 6)
+      return setError("Password must be at least 6 characters.");
 
-    signup(email, password);
+    if (firebaseError.length > 0) return setError(firebaseError);
+    try {
+      setError("");
+      setLoading(true);
+      await signup(email, password);
+      console.log(currentUser);
+    } catch (error) {
+      setError(error);
+    }
+    setLoading(false);
   };
 
   return (
@@ -42,6 +55,11 @@ export const SignUp: React.FC<SignUpProps> = () => {
             <Typography variant="h3" align="center" gutterBottom>
               Sign Up
             </Typography>
+            {error && (
+              <Typography color="primary" align="center" gutterBottom>
+                Error: {error}
+              </Typography>
+            )}
           </Grid>
           <Grid item className={classes.input}>
             <FormControl>
@@ -74,7 +92,12 @@ export const SignUp: React.FC<SignUpProps> = () => {
             </FormControl>
           </Grid>
           <Grid item className={classes.input}>
-            <Button variant="outlined" color="primary" onClick={handleSubmit}>
+            <Button
+              disabled={loading}
+              variant="outlined"
+              color="primary"
+              onClick={handleSubmit}
+            >
               Sign Up!
             </Button>
           </Grid>
