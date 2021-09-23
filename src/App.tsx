@@ -5,6 +5,7 @@ import "./App.css";
 import { NavBar } from "./Navbar";
 import { theme } from "./Styling";
 import { SignUp } from "./Auth/SignUp";
+import { Game } from "./Pages/Game";
 
 const App = () => {
   // const handleLogin = async () => {
@@ -22,6 +23,7 @@ const App = () => {
       <CssBaseline />
       <BrowserRouter>
         <NavBar />
+        <Game />
         <Switch>
           <Route exact path="/log-in">
             <SignUp />

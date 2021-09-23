@@ -8,46 +8,46 @@ type NavBarProps = {
   // setCurrentUser: any;
 };
 
-export const NavBar: React.FC<NavBarProps> = (
+export const NavBar: React.FC<NavBarProps> = () =>
+  // {
+  //   // currentUser,
+  //   // setCurrentUser,
+  // }
   {
-    // currentUser,
-    // setCurrentUser,
-  }
-) => {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
-    <AppBar position="fixed">
-      <Toolbar>
-        <Grid container justifyContent="space-between" alignItems="center">
-          <Grid item>
-            <Button
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-            >
-              <Link to="/" className={classes.link}>
-                <GridOn className={`${classes.icon} ${classes.navBar}`} />
-                <Typography variant="h6" className={classes.navBar}>
-                  Tic-Tac-Toe
-                </Typography>
-              </Link>
-            </Button>
+    return (
+      <AppBar position="fixed">
+        <Toolbar>
+          <Grid container justifyContent="space-between" alignItems="center">
+            <Grid item>
+              <Button
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                <Link to="/" className={classes.link}>
+                  <GridOn className={`${classes.icon} ${classes.navBar}`} />
+                  <Typography variant="h6" className={classes.navBar}>
+                    Tic-Tac-Toe
+                  </Typography>
+                </Link>
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button>
+                <Link to="/log-in" className={classes.link}>
+                  <Typography variant="h6" className={classes.navBar}>
+                    Log In
+                  </Typography>
+                  <AccountCircleSharp
+                    className={`${classes.icon} ${classes.navBar}`}
+                  />
+                </Link>
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item>
-            <Button>
-              <Link to="/LogIn" className={classes.link}>
-                <Typography variant="h6" className={classes.navBar}>
-                  Log In
-                </Typography>
-                <AccountCircleSharp
-                  className={`${classes.icon} ${classes.navBar}`}
-                />
-              </Link>
-            </Button>
-          </Grid>
-        </Grid>
-      </Toolbar>
-    </AppBar>
-  );
-};
+        </Toolbar>
+      </AppBar>
+    );
+  };

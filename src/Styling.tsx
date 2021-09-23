@@ -72,4 +72,9 @@ export const useStyles = makeStyles((theme) => ({
   input: {
     marginBottom: "25px",
   },
+  row: {
+    height: "33%",
+    width: 300,
+    display: "flex",
+  },
 }));
