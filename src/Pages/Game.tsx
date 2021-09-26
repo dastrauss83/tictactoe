@@ -39,6 +39,7 @@ export const Game = () => {
 
   useEffect(() => {
     setIsWinner(checkIfWinner());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameState]);
 
   return (
