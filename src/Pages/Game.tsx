@@ -61,8 +61,9 @@ export const Game = () => {
           style={{ height: 500, padding: 20 }}
         >
           <Typography variant="h5" gutterBottom>
-            {isWinner
-            isWinner !== "none"
+            {isWinner === "It's a tie!"
+              ? "It's a tie!"
+              : isWinner !== "none"
               ? `${isWinner} has won!`
               : `Your move ${player}`}
           </Typography>
