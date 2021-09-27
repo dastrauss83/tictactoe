@@ -23,7 +23,7 @@ export const Game = () => {
       [3, 4, 5],
       [6, 7, 8],
       [0, 4, 8],
-      [2, 5, 6],
+      [2, 4, 6],
     ];
     for (let win of winning) {
       let [num1, num2, num3] = win;
@@ -37,8 +37,16 @@ export const Game = () => {
     return "none";
   };
 
+  const checkIfTie = () => {
+    for (let square of gameState) {
+      if (square === "") return "none";
+    }
+    return "It's a tie!";
+  };
+
   useEffect(() => {
     setIsWinner(checkIfWinner());
+    setIsWinner(checkIfTie());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameState]);
 
@@ -53,15 +61,17 @@ export const Game = () => {
           style={{ height: 500, padding: 20 }}
         >
           <Typography variant="h5" gutterBottom>
-            {isWinner !== "none"
+            {isWinner
+            isWinner !== "none"
               ? `${isWinner} has won!`
-              : `Your move player ${player ? "X" : "O"}`}
+              : `Your move ${player}`}
           </Typography>
           <Board
             gameState={gameState}
             setGameState={setGameState}
             player={player}
             setPlayer={setPlayer}
+            isWinner={isWinner}
           />
           <Button onClick={handleReset}>Reset</Button>
         </Grid>

@@ -8,9 +8,16 @@ type BoardProps = {
   setGameState: any;
   player: string;
   setPlayer: any;
+  isWinner: string;
 };
 
-const Board = ({ gameState, setGameState, player, setPlayer }: BoardProps) => {
+const Board = ({
+  gameState,
+  setGameState,
+  player,
+  setPlayer,
+  isWinner,
+}: BoardProps) => {
   const classes = useStyles();
 
   const row1 = [0, 1, 2];
@@ -18,12 +25,14 @@ const Board = ({ gameState, setGameState, player, setPlayer }: BoardProps) => {
   const row3 = [6, 7, 8];
 
   const chooseSquare = (num: number) => {
+    if (isWinner !== "none") return;
     setGameState(
       gameState.map((val: string, idx: number) => {
         if (idx === num && val === "") return player;
         return val;
       })
     );
+    console.log(player);
     player === "X" ? setPlayer("O") : setPlayer("X");
   };
 
