@@ -58,7 +58,7 @@ export const Game = () => {
           direction="column"
           justifyContent="space-between"
           alignItems="center"
-          style={{ height: 500, padding: 20 }}
+          style={{ height: 500, padding: 10 }}
         >
           <Typography variant="h5" gutterBottom>
             {isWinner === "It's a tie!"
