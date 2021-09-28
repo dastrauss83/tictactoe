@@ -9,7 +9,7 @@ type SquareProps = {
 const Square = ({ value, chooseSquare }: SquareProps) => {
   return (
     <Grid item style={{ height: "100%", width: "33%", border: "solid" }}>
-      <Button onClick={chooseSquare} style={{ height: "100%", width: "8%" }}>
+      <Button onClick={chooseSquare} style={{ height: "100%", width: "100%" }}>
         {value !== "none" && <Typography>{value}</Typography>}
       </Button>
     </Grid>
