@@ -35,7 +35,6 @@ export const SignUp: React.FC<SignUpProps> = () => {
       setError("");
       setLoading(true);
       await signup(email, password);
-      console.log(currentUser);
     } catch (error) {
       setError(error);
     }
