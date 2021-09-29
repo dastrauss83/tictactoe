@@ -32,7 +32,6 @@ const Board = ({
         return val;
       })
     );
-    console.log(player);
     player === "X" ? setPlayer("O") : setPlayer("X");
   };
 
