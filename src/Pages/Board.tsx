@@ -20,6 +20,7 @@ const Board = ({
 }: BoardProps) => {
   const classes = useStyles();
 
+  //rows for playing
   const row1 = [0, 1, 2];
   const row2 = [3, 4, 5];
   const row3 = [6, 7, 8];
