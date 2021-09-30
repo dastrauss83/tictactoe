@@ -32,7 +32,7 @@ const Board = ({
         return val;
       })
     );
-    player === "X" ? setPlayer("O") : setPlayer("X");
+    player === "X" ? setPlayer("") : setPlayer("X");
   };
 
   return (
